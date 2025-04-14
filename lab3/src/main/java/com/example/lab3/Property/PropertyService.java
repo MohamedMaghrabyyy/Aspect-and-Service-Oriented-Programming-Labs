@@ -20,7 +20,6 @@ public class PropertyService {
         this.propertyRepository = propertyRepository;
         this.hostRepository = hostRepository;
     }
-
     public Property addProperty(createPropertyDTO dto) {
         // Fetch the Host using the provided host ID
         Host host = hostRepository.findById(dto.getHostId())
@@ -47,5 +46,6 @@ public class PropertyService {
     public List<Property> getPropertiesByHostId(Integer hostId) {
         return propertyRepository.findByHostId(hostId);
     }
+
 }
 

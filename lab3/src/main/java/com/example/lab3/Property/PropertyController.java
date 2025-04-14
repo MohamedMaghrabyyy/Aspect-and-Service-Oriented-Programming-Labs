@@ -43,4 +43,5 @@ public class PropertyController {
         List<Property> properties = propertyService.getPropertiesByHostId(hostId);
         return ResponseEntity.ok(properties);
     }
+
 }
