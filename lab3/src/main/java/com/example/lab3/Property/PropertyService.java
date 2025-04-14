@@ -2,7 +2,6 @@ package com.example.lab3.Property;
 
 import com.example.lab3.Host.Host;
 import com.example.lab3.Host.HostRepository;
-import com.example.lab3.Property.DTO.HostWithPropertiesDTO;
 import com.example.lab3.Property.DTO.createPropertyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,14 +44,8 @@ public class PropertyService {
         return propertyRepository.findById(id);
     }
 
-    public HostWithPropertiesDTO getPropertiesByHostId(Integer hostId) {
-        Host host = hostRepository.findById(hostId)
-                .orElseThrow(() -> new RuntimeException("Host not found"));
-
-        List<Property> properties = propertyRepository.findByHostId(hostId);
-
-        return new HostWithPropertiesDTO(host, properties);
+    public List<Property> getPropertiesByHostId(Integer hostId) {
+        return propertyRepository.findByHostId(hostId);
     }
-
 }
 

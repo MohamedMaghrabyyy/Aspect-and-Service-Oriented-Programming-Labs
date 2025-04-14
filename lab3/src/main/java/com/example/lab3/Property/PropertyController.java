@@ -1,6 +1,5 @@
 package com.example.lab3.Property;
 
-import com.example.lab3.Property.DTO.HostWithPropertiesDTO;
 import com.example.lab3.Property.DTO.createPropertyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -40,9 +39,8 @@ public class PropertyController {
     }
 
     @GetMapping("/host/{hostId}")
-    public ResponseEntity<HostWithPropertiesDTO> getPropertiesByHostId(@PathVariable Integer hostId) {
-        HostWithPropertiesDTO hostWithPropertiesDTO = propertyService.getPropertiesByHostId(hostId);
-        return ResponseEntity.ok(hostWithPropertiesDTO);
+    public ResponseEntity<List<Property>> getPropertiesByHostId(@PathVariable Integer hostId) {
+        List<Property> properties = propertyService.getPropertiesByHostId(hostId);
+        return ResponseEntity.ok(properties);
     }
-
 }
