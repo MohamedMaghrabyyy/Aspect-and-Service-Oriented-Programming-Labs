@@ -1,0 +1,16 @@
+services:
+  service-room-pg:
+    image: postgres:latest
+    container_name: lab5-pg
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: service-lab5
+    ports:
+      - "5450:5432"
+    volumes:
+      - room_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  room_data:
